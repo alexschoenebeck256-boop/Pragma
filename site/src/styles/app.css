@@ -1,0 +1,215 @@
+@import "tailwindcss";
+
+/* ─── Pragma Brand Design Tokens ─── */
+@theme {
+  /* Primary — Midnight Blue */
+  --color-brand-50: #eef2ff;
+  --color-brand-100: #e0e7ff;
+  --color-brand-200: #c7d2fe;
+  --color-brand-300: #a5b4fc;
+  --color-brand-400: #818cf8;
+  --color-brand-500: #3b6bf0;
+  --color-brand-600: #1a2d5d;
+  --color-brand-700: #0f1b33;
+  --color-brand-800: #0b1120;
+  --color-brand-900: #070a14;
+
+  /* Accent — Pragma Gold */
+  --color-accent-400: #e8c76a;
+  --color-accent-500: #d4a84b;
+  --color-accent-600: #b8862e;
+
+  /* Secondary — Teal */
+  --color-secondary-400: #2dd4bf;
+  --color-secondary-500: #0d9488;
+
+  /* Surfaces */
+  --color-surface-darker: #0b1120;
+  --color-surface-dark: #0f1b33;
+  --color-surface-card: #1a2d5d;
+
+  /* Custom shadows */
+  --shadow-gold: 0 4px 14px rgba(212, 168, 75, 0.25);
+  --shadow-brand: 0 4px 14px rgba(59, 107, 240, 0.2);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html,
+  body {
+    @apply bg-surface-darker text-gray-100 antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #d4a84b 0%, #e8c76a 50%, #d4a84b 100%);
+  }
+
+  .gradient-text-blue {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #3b6bf0 0%, #818cf8 50%, #a5b4fc 100%);
+  }
+
+  .glass-card {
+    @apply border border-white/5 bg-surface-dark/60 backdrop-blur-sm;
+  }
+
+  .glass-card:hover {
+    @apply border-accent-500/20;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-lg px-6 py-3 font-medium text-neutral-900 transition-all active:scale-[0.98];
+    background: linear-gradient(135deg, #d4a84b 0%, #e8c76a 50%, #d4a84b 100%);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 4px 14px rgba(212, 168, 75, 0.35);
+    transform: scale(1.02);
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center rounded-lg border border-white/10 bg-transparent px-6 py-3 font-medium text-gray-200 transition-all hover:border-accent-500/50 hover:text-accent-400 active:scale-[0.98];
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-lg px-4 py-2 font-medium text-gray-400 transition-all hover:bg-white/5 hover:text-gray-200;
+  }
+
+  .gold-accent-line {
+    @apply h-1 w-12 rounded-full;
+    background: linear-gradient(90deg, #d4a84b, #e8c76a);
+  }
+
+  .stat-value {
+    @apply text-2xl font-bold text-white sm:text-3xl font-heading;
+  }
+}
+
+/* Custom font families */
+@utility font-heading {
+  font-family: "Inter Tight", system-ui, sans-serif;
+}
+
+@utility gold-gradient {
+  background: linear-gradient(135deg, #d4a84b 0%, #e8c76a 50%, #d4a84b 100%);
+}
+
+@utility font-mono {
+  font-family: "JetBrains Mono", monospace;
+}
+
+/* ─── Marketplace Components ─── */
+@utility badge-gold {
+  @apply rounded-full px-2.5 py-0.5 text-xs font-medium;
+  background: rgba(212, 168, 75, 0.1);
+  color: #d4a84b;
+}
+
+@utility progress-track {
+  @apply h-2 w-full overflow-hidden rounded-full;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+@utility progress-fill {
+  background: linear-gradient(90deg, #d4a84b, #e8c76a);
+  @apply h-full rounded-full transition-all duration-700;
+}
+
+@utility card-hover {
+  @apply transition-all duration-200;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  border-color: rgba(212, 168, 75, 0.3);
+  box-shadow: 0 8px 25px rgba(11, 17, 32, 0.15), 0 0 40px rgba(212, 168, 75, 0.05);
+}
+
+@utility data-cell {
+  @apply rounded-lg p-3;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+@utility input-dark {
+  @apply rounded-lg border px-4 py-2.5 text-sm text-gray-300 outline-none;
+  border-color: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.input-dark:focus {
+  border-color: rgba(212, 168, 75, 0.4);
+  --tw-ring-color: rgba(212, 168, 75, 0.15);
+  box-shadow: 0 0 0 2px rgba(212, 168, 75, 0.15);
+}
+
+@utility qty-btn {
+  @apply flex h-10 w-10 items-center justify-center rounded-lg text-gray-400 transition-colors;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.qty-btn:hover {
+  border-color: rgba(212, 168, 75, 0.4);
+  color: #d4a84b;
+  background: rgba(212, 168, 75, 0.05);
+}
+
+/* ─── Category Gradients ─── */
+@utility gradient-real-estate {
+  background: linear-gradient(135deg, #3b6bf0 0%, #818cf8 100%);
+}
+
+@utility gradient-fine-art {
+  background: linear-gradient(135deg, #d4a84b 0%, #e8c76a 100%);
+}
+
+@utility gradient-collectibles {
+  background: linear-gradient(135deg, #0d9488 0%, #2dd4bf 100%);
+}
+
+@utility gradient-commodities {
+  background: linear-gradient(135deg, #64748b 0%, #94a3b8 100%);
+}
+
+@utility gradient-private-equity {
+  background: linear-gradient(135deg, #1a2d5d 0%, #3b6bf0 100%);
+}
+
+@utility gradient-wine {
+  background: linear-gradient(135deg, #b8862e 0%, #d4a84b 100%);
+}
+
+/* ─── Animations ─── */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(212, 168, 75, 0.05), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out forwards;
+}
+
+/* RainbowKit overrides for dark theme */
+[data-rk] {
+  --rk-blurs-modalOverlay: 4px;
+}
