@@ -1,0 +1,11 @@
+# Build artifacts
+out/
+cache/
+
+# Dependencies (install via forge install)
+lib/
+
+# IDE
+.vscode/
+.idea/
+*.swp

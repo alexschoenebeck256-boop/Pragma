@@ -1,0 +1,12 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+solc_version = "0.8.27"
+evm_version = "cancun"
+optimizer = true
+optimizer_runs = 200
+gas_reports = ["PragmaAssetToken", "PragmaComplianceRegistry", "PragmaTokenFactory", "PragmaFeeDistributor"]
+
+[fuzz]
+runs = 1000
